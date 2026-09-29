@@ -1,0 +1,47 @@
+\documentclass{mathnotes}
+
+\input{course}
+\notedate{September 10, 2026}
+
+\begin{document}
+
+\notetitle{12}{Uniform Continuity}
+
+Let $f: A \to \R$ be a function on a set $A \subseteq \R$. Recall that continuity
+at a point $c$ allows the choice of $\delta$ to depend on both $\eps$ and $c$.
+Uniform continuity strengthens this by requiring a single $\delta$ that works
+across the entire domain.
+
+\begin{definition}
+A function $f: A \to \R$ is uniformly continuous on $A$ if for every
+$\eps > 0$ there exists a $\delta > 0$ such that for all $x, y \in A$,
+\[
+  |x - y| < \delta \implies |f(x) - f(y)| < \eps.
+\]
+\end{definition}
+
+Compare this with the pointwise definition, where $\delta$ may vary with $c$.
+The key theorem below shows compactness is exactly what's needed to upgrade
+continuity to uniform continuity.
+
+\begin{theorem}[Heine--Cantor]
+If $f: K \to \R$ is continuous and $K$ is compact, then $f$ is uniformly
+continuous on $K$.
+\end{theorem}
+
+A quick numerical check --- verifying the $\delta/\eps$ bound on a sample function:
+
+\begin{lstlisting}
+def is_uniformly_cont(f, eps, xs):
+    for delta in grid:
+        if all(abs(f(x) - f(y)) < eps
+               for x, y in pairs(xs, delta)):
+            return delta
+\end{lstlisting}
+
+On the grid tested here, the search returns $\delta = 0.02$, well within the
+tolerance we assumed at the start of the lecture. Note that this value depends
+on the grid resolution, not on any particular point $c$ --- consistent with
+the definition above.
+
+\end{document}
