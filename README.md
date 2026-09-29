@@ -2,6 +2,8 @@
 
 Lecture-notes starter using the `mathnotes` class. Clone (or use as a GitHub template) once per course, set the course name, and start writing.
 
+<img width="804" height="678" alt="Screenshot 2026-09-29 at 1 47 57 PM" src="https://github.com/user-attachments/assets/6ffb8d0a-73d6-433d-94ba-b4a13104923b" />
+
 ## Quick start
 
 1. Open this folder in VS Code / Cursor. Install the recommended **LaTeX Workshop** extension if prompted.
